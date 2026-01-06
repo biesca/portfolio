@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Alberto Biesca – Observability Architect</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root{--bg:#0b0c10;--accent:#00d4ff;--text:#c5c6c7;--card:#1f2833;--highlight:#66fcf1}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--text)}
+    header,section{padding:clamp(2.5rem,6vw,5rem) 1.5rem;max-width:960px;margin:auto}
+    h1{font-size:clamp(2.5rem,7vw,4rem);margin:0;color:var(--highlight);letter-spacing:-1px}
+    .tagline{font-size:1.3rem;margin:.5rem 0 2rem;opacity:.9}
+    .btn{display:inline-block;background:var(--accent);color:#000;padding:.7rem 1.5rem;border-radius:4px;text-decoration:none;font-weight:600;transition:transform .2s,box-shadow .2s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 0 15px var(--accent)}
+    .grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:var(--card);padding:1.5rem;border-radius:8px;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+    .card.show{opacity:1;transform:translateY(0)}
+    .logo{height:28px;margin-right:.5rem;vertical-align:middle}
+    .count{font-size:2.2rem;font-weight:700;color:var(--highlight)}
+    footer{text-align:center;padding:2rem 1rem;font-size:.9rem;opacity:.6}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Observability that just <span style="color:var(--accent)">works</span>.</h1>
+  <p class="tagline">I design end-to-end observable pipelines:<br>
+    Logs → Metrics → Traces → Actionable alerts in&nbsp;<strong>seconds</strong>.</p>
+  <a class="btn" href="mailto:alberto.biesca@gmail.com">Reduce your MTTR now</a>
+</header>
+
+<section>
+  <h2>Stack I breathe</h2>
+  <div class="grid">
+    <div class="card">
+      <svg class="logo" viewBox="0 0 128 128"><path fill="#f5b300" d="M40 24l48 32-48 32z"/><path fill="#00d4ff" d="M88 56v48L40 80z"/><path fill="#fff" d="M88 24v32L40 56z"/></svg>
+      <strong>Elastic-stack</strong><br>Elasticsearch, Logstash, Kibana, Beats, Agent, Fleet, ES|QL, Vector Search
+    </div>
+    <div class="card">
+      <svg class="logo" viewBox="0 0 128 128"><circle fill="#e6522c" cx="64" cy="64" r="56"/></svg>
+      <strong>Prometheus</strong><br>Recording rules, Alert-manager, remote-write, scaling with Thanos/Cortex
+    </div>
+    <div class="card">
+      <svg class="logo" viewBox="0 0 128 128"><rect fill="#22c55e" x="10" y="30" width="108" height="68" rx="12"/></svg>
+      <strong>Grafana</strong><br>Dashboard-as-code, variables, alerting, SLO pipelines, Canvas &amp; geomap
+    </div>
+    <div class="card">
+      <svg class="logo" viewBox="0 0 128 128"><path fill:#00d4ff" d="M20 20h88v88H20z"/></svg>
+      <strong>InfluxDB</strong><br>TSI, Flux tasks, downsampling, edge replication, industrial time-series
+    </div>
+    <div class="card">
+      <svg class="logo" viewBox="0 0 128 128"><path fill="#00d4ff" d="M64 8l56 56-56 56L8 64z"/></svg>
+      <strong>OpenTelemetry</strong><br>Auto-instrumentation, collector pipelines, tail &amp; head sampling
+    </div>
+    <div class="card">
+      <svg class="logo" viewBox="0 0 128 128"><path fill="#326ce5" d="M64 4l20 36 38 6-28 28 8 38-38-20-38 20 8-38L6 46l38-6z"/></svg>
+      <strong>Kubernetes</strong><br>ECK, Helm, operators, sidecar collectors, daemon-set beats
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Pipeline in 15 seconds</h2>
+  <ol>
+    <li><strong>Ingest:</strong> Beats / Elastic-Agent / OTel-collector scrape logs, metrics, traces.</li>
+    <li><strong>Parse & enrich:</strong> Logstash / ES-ingest pipelines add geo, CMDB, threat-intel.</li>
+    <li><strong>Store:</strong> Elasticsearch data-streams with ILM &amp; TSDB for 30× compression.</li>
+    <li><strong>Visualise:</strong> Kibana / Grafana dashboards with ES|QL, PromQL, Flux.</li>
+    <li><strong>Alert:</strong> Watcher / Prometheus Alert-manager / SLO burn-rate → PagerDuty, Slack, Webhook.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Impact snapshot</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="count" data-target="8">0</div> TB/day ingested<br>
+      <small>AXA + industrial IoT clusters</small>
+    </div>
+    <div class="card">
+      <div class="count" data-target="42">0</div> clusters unified<br>
+      <small>Federated architecture, 99.99 % SLA</small>
+    </div>
+    <div class="card">
+      <div class="count" data-target="50">0</div> % MTTR cut<br>
+      <small>Down from 2 h to &lt; 60 min</small>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Recent battle stories</h2>
+  <ul>
+    <li><strong>Factory-floor observability</strong> – Modbus → Logstash → ES|QL live dashboard; detected thermal anomaly 4 min antes de parada de línea.</li>
+    <li><strong>Elastic-Agent rollout</strong> – 12 000 hosts migrated from deprecated Beats in 3 weeks con Ansible + Fleet policies.</li>
+    <li><strong>Prometheus-ha</strong> – Thanos sidecar + S3 storage, 18 months retención, 92 % reducción de disco local.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Need an observability health-check?</h2>
+  <a class="btn" href="mailto:alberto.biesca@gmail.com">Book a free 30-min call</a>
+</section>
+
+<footer>
+  © 2024 Alberto Biesca – triple Elastic certified. Built with 5 kb of vanilla code.
+</footer>
+
+<script>
+  /* reveal + counters */
+  const io=(entries,observer)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}
+    })
+  };
+  const ob=new IntersectionObserver(io,{threshold:.2});
+  document.querySelectorAll('.card').forEach(el=>ob.observe(el));
+
+  /* animated counters */
+  counters=document.querySelectorAll('.count');
+  const run=el=>{
+    const t=+el.dataset.target,step=t/60; let c=0;
+    const tick=()=>{
+      c+=step;
+      if(c<t){el.textContent=Math.ceil(c);requestAnimationFrame(tick)}
+      else{el.textContent=t+(el.parentElement.textContent.includes('TB')?' TB':el.parentElement.textContent.includes('%')?' %':'')}}
+    tick();
+  };
+  const cob=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(e=>{if(e.isIntersecting){run(e.target);obs.unobserve(e.target)}})
+  },{threshold:1});
+  counters.forEach(c=>cob.observe(c));
+</script>
+</body>
+</html>
