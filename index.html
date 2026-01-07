@@ -1,34 +1,75 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <title>Alberto Biesca – Observability Architect</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    :root{--bg:#0b0c10;--accent:#00d4ff;--text:#c5c6c7;--card:#1f2833;--highlight:#66fcf1}
+    :root{--bg:#0a0c10;--accent:#00d4ff;--text:#e1e2e3;--card:#161b22;--highlight:#66fcf1}
     *{box-sizing:border-box}
     body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--text)}
-    header,section{padding:clamp(2.5rem,6vw,5rem) 1.5rem;max-width:960px;margin:auto}
-    h1{font-size:clamp(2.5rem,7vw,4rem);margin:0;color:var(--highlight);letter-spacing:-1px}
-    .tagline{font-size:1.3rem;margin:.5rem 0 2rem;opacity:.9}
-    .btn{display:inline-block;background:var(--accent);color:#000;padding:.7rem 1.5rem;border-radius:4px;text-decoration:none;font-weight:600;transition:transform .2s,box-shadow .2s}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 0 15px var(--accent)}
-    .grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .card{background:var(--card);padding:1.5rem;border-radius:8px;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+    header,section{padding:clamp(3rem,7vw,6rem) 1.5rem;max-width:1000px;margin:auto}
+    h1{font-size:clamp(2.8rem,8vw,4.5rem);margin:0;color:var(--highlight);letter-spacing:-1px}
+    .tagline{font-size:1.4rem;margin:.8rem 0 2.5rem;opacity:.9}
+    /* botones ripple */
+    .btn{
+      display:inline-block;background:var(--accent);color:#000;
+      padding:.8rem 1.8rem;border-radius:6px;text-decoration:none;
+      font-weight:600;position:relative;overflow:hidden;transition:transform .25s
+    }
+    .btn:hover{transform:translateY(-3px)}
+    .btn::after{content:"";position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,.4);transform:translate(-50%,-50%);transition:width .4s,height .4s}
+    .btn:hover::after{width:250px;height:250px}
+    .btn-secondary{background:transparent;border:2px solid var(--accent);color:var(--accent)}
+    .btn-secondary:hover{background:var(--accent);color:#000}
+
+    .grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax 220px,1fr))}
+    .card{background:var(--card);padding:2rem;border-radius:12px;opacity:0;transform:translateY(35px);transition:opacity .6s ease,transform .6s ease}
     .card.show{opacity:1;transform:translateY(0)}
+    /* cert badges */
+    .badge{
+      display:inline-flex;align-items:center;background:rgba(0,212,255,.12);
+      border:1px solid var(--accent);border-radius:8px;padding:.6rem 1rem;
+      margin:.3rem;font-size:.95rem;transition:background .25s
+    }
+    .badge:hover{background:rgba(0,212,255,.25)}
+    .badge svg{width:22px;height:22px;margin-right:.5rem;fill:var(--accent)}
+    /* tech logos */
     .logo{height:28px;margin-right:.5rem;vertical-align:middle}
-    .count{font-size:2.2rem;font-weight:700;color:var(--highlight)}
-    footer{text-align:center;padding:2rem 1rem;font-size:.9rem;opacity:.6}
+    .count{font-size:2.5rem;font-weight:700;color:var(--highlight)}
+    footer{text-align:center;padding:2.5rem 1rem;font-size:.9rem;opacity:.6}
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Observability that just <span style="color:var(--accent)">works</span>.</h1>
-  <p class="tagline">I design end-to-end observable pipelines:<br>
-    Logs → Metrics → Traces → Actionable alerts in&nbsp;<strong>seconds</strong>.</p>
-  <a class="btn" href="mailto:alberto.biesca@gmail.com">Reduce your MTTR now</a>
+  <h1>Sé qué está pasando <br>en cada momento.</h1>
+  <p class="tagline">
+    Mi misión: ayudar a las organizaciones a <strong>tomar decisiones en segundos</strong>, no en horas,  
+    con observabilidad predictiva, escalable y alineada al negocio.
+  </p>
+  <a class="btn" href="mailto:alberto.biesca@gmail.com">Empezar conversación</a>
+  <a class="btn btn-secondary" href="#certificaciones">Ver credenciales</a>
 </header>
+
+<section id="certificaciones">
+  <h2>Elastic Certifications – triple check ✔</h2>
+  <p>Todas verificables en certified.elastic.co</p>
+  <div>
+    <span class="badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Certified Engineer
+    </span>
+    <span class="badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Certified Observability Engineer
+    </span>
+    <span class="badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Certified Analyst
+    </span>
+  </div>
+</section>
 
 <section>
   <h2>Stack I breathe</h2>
@@ -43,94 +84,87 @@
     </div>
     <div class="card">
       <svg class="logo" viewBox="0 0 128 128"><rect fill="#22c55e" x="10" y="30" width="108" height="68" rx="12"/></svg>
-      <strong>Grafana</strong><br>Dashboard-as-code, variables, alerting, SLO pipelines, Canvas &amp; geomap
+      <strong>Grafana</strong><br>Dashboard-as-code, variables, alerting, SLO pipelines, Canvas & geomap
     </div>
     <div class="card">
-      <svg class="logo" viewBox="0 0 128 128"><path fill:#00d4ff" d="M20 20h88v88H20z"/></svg>
-      <strong>InfluxDB</strong><br>TSI, Flux tasks, downsampling, edge replication, industrial time-series
+      <svg class="logo" viewBox="0 0 128 128"><path fill="#00d4ff" d="M20 20h88v88H20z"/></svg>
+      <strong>TICK</strong><br>Telegraf, InfluxDB, Chronograf, Kapacitor
     </div>
     <div class="card">
       <svg class="logo" viewBox="0 0 128 128"><path fill="#00d4ff" d="M64 8l56 56-56 56L8 64z"/></svg>
-      <strong>OpenTelemetry</strong><br>Auto-instrumentation, collector pipelines, tail &amp; head sampling
+      <strong>OpenTelemetry</strong><br>Auto-instrumentation, collector pipelines, tail & head sampling
     </div>
     <div class="card">
-      <svg class="logo" viewBox="0 0 128 128"><path fill="#326ce5" d="M64 4l20 36 38 6-28 28 8 38-38-20-38 20 8-38L6 46l38-6z"/></svg>
-      <strong>Kubernetes</strong><br>ECK, Helm, operators, sidecar collectors, daemon-set beats
+      <svg class="logo" viewBox="0 0 128 128"><path fill="#326ce5" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <strong>Kubernetes</strong><br>ECK, Helm, operators
     </div>
   </div>
 </section>
 
 <section>
-  <h2>Pipeline in 15 seconds</h2>
+  <h2>Valor para el negocio</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="count" data-target="50">0</div> % menos incidentes críticos<br>
+      <small>Reducción de interrupciones = ingresos protegidos</small>
+    </div>
+    <div class="card">
+      <div class="count" data-target="2">0</div> h → 30 min MTTR<br>
+      <small>Decisiones más rápidas, clientes más felices</small>
+    </div>
+    <div class="card">
+      <div class="count" data-target="120">0</div> k€ ahorro / año<br>
+      <small>Optimización de licencias y storage</small>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Cómo trabajo (y con quién)</h2>
   <ol>
-    <li><strong>Ingest:</strong> Beats / Elastic-Agent / OTel-collector scrape logs, metrics, traces.</li>
-    <li><strong>Parse & enrich:</strong> Logstash / ES-ingest pipelines add geo, CMDB, threat-intel.</li>
-    <li><strong>Store:</strong> Elasticsearch data-streams with ILM &amp; TSDB for 30× compression.</li>
-    <li><strong>Visualise:</strong> Kibana / Grafana dashboards with ES|QL, PromQL, Flux.</li>
-    <li><strong>Alert:</strong> Watcher / Prometheus Alert-manager / SLO burn-rate → PagerDuty, Slack, Webhook.</li>
+    <li><strong>Discovery ejecutivo</strong> – OKR, KPI, presupuesto, compliance.</li>
+    <li><strong>Quick-win 30 días</strong> – pipeline mínimo viable y dashboard C-level.</li>
+    <li><strong>Escalado</strong> – SLO, chaos, automatización, formación interna.</li>
+    <li><strong>Hand-off</strong> – documentación, runbooks, soporte 24×7 o SOC interno.</li>
   </ol>
 </section>
 
 <section>
-  <h2>Impact snapshot</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="count" data-target="8">0</div> TB/day ingested<br>
-      <small>AXA + industrial IoT clusters</small>
-    </div>
-    <div class="card">
-      <div class="count" data-target="42">0</div> clusters unified<br>
-      <small>Federated architecture, 99.99 % SLA</small>
-    </div>
-    <div class="card">
-      <div class="count" data-target="50">0</div> % MTTR cut<br>
-      <small>Down from 2 h to &lt; 60 min</small>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>Recent battle stories</h2>
+  <h2>Casos de éxito recientes</h2>
   <ul>
-    <li><strong>Factory-floor observability</strong> – Modbus → Logstash → ES|QL live dashboard; detected thermal anomaly 4 min antes de parada de línea.</li>
-    <li><strong>Elastic-Agent rollout</strong> – 12 000 hosts migrated from deprecated Beats in 3 weeks con Ansible + Fleet policies.</li>
-    <li><strong>Prometheus-ha</strong> – Thanos sidecar + S3 storage, 18 months retención, 92 % reducción de disco local.</li>
+    <li><strong>AXA Worldwide</strong> – unificación 42 clusters ELK, 8 TB/d, 99.99 % SLA.</li>
+    <li><strong>Fábrica automoción</strong> – detección térmica 4 min antes de parada de línea.</li>
+    <li><strong>Fintech PCI-DSS</strong> – 2 M pagos/d, trazabilidad 100 % en 15 s.</li>
   </ul>
 </section>
 
 <section>
-  <h2>Need an observability health-check?</h2>
-  <a class="btn" href="mailto:alberto.biesca@gmail.com">Book a free 30-min call</a>
+  <h2>¿Listos para saber qué pasa <em>ahora mismo</em>?</h2>
+  <a class="btn" href="mailto:biesca@gmail.com">Solicitar demo 30 min</a>
+  <a class="btn btn-secondary" href="https://linkedin.com/in/biesca/" target="_blank">Conectar en LinkedIn</a>
 </section>
 
 <footer>
-  © 2024 Alberto Biesca – triple Elastic certified. Built with 5 kb of vanilla code.
+  © 2025 Alberto Biesca – Observability Architect & Business enabler.
 </footer>
 
 <script>
   /* reveal + counters */
-  const io=(entries,observer)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}
-    })
-  };
-  const ob=new IntersectionObserver(io,{threshold:.2});
-  document.querySelectorAll('.card').forEach(el=>ob.observe(el));
+  const io=new IntersectionObserver((e,o)=>{e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('show');o.unobserve(i.target)}})},{threshold:.2});
+  document.querySelectorAll('.card').forEach(c=>io.observe(c));
 
   /* animated counters */
-  counters=document.querySelectorAll('.count');
-  const run=el=>{
-    const t=+el.dataset.target,step=t/60; let c=0;
+  document.querySelectorAll('.count').forEach(el=>{
+    const tgt=+el.dataset.target,step=tgt/60; let c=0;
     const tick=()=>{
       c+=step;
-      if(c<t){el.textContent=Math.ceil(c);requestAnimationFrame(tick)}
-      else{el.textContent=t+(el.parentElement.textContent.includes('TB')?' TB':el.parentElement.textContent.includes('%')?' %':'')}}
-    tick();
-  };
-  const cob=new IntersectionObserver((entries,obs)=>{
-    entries.forEach(e=>{if(e.isIntersecting){run(e.target);obs.unobserve(e.target)}})
-  },{threshold:1});
-  counters.forEach(c=>cob.observe(c));
+      if(c<tgt){el.textContent=Math.ceil(c);requestAnimationFrame(tick)}
+      else{el.textContent=tgt+(el.parentElement.textContent.includes('%')?' %':el.parentElement.textContent.includes('h')?' min':' k€')}
+    };
+    const obs=new IntersectionObserver((e,ob)=>{if(e[0].isIntersecting){tick();ob.disconnect()}},{threshold:1});
+    obs.observe(el);
+  });
 </script>
 </body>
+</html>
 </html>
